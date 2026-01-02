@@ -268,7 +268,7 @@ import Layout from "../layouts/Layout.astro";
         </li>
         <li class="flex items-center gap-4">
           <span class="text-pink-600 text-xl">📞</span>
-         (840)275-0832
+6242465589 
         </li>
         <li class="flex items-center gap-4">
           <span class="text-pink-600 text-xl">✉️</span>
@@ -279,9 +279,10 @@ Eliyahurenteria@gmail.com
 
     <!-- Formulario -->
     <div class="bg-white rounded-3xl shadow-xl p-10">
-      <form class="space-y-6">
+<form id="contactForm" class="space-y-6">
 
         <input
+          name="nombre"
           type="text"
           placeholder="Nombre completo"
           class="w-full border border-gray-200 rounded-xl px-5 py-4
@@ -289,6 +290,7 @@ Eliyahurenteria@gmail.com
         />
 
         <input
+          name="email"
           type="email"
           placeholder="Correo electrónico"
           class="w-full border border-gray-200 rounded-xl px-5 py-4
@@ -296,6 +298,7 @@ Eliyahurenteria@gmail.com
         />
 
         <input
+          name="telefono"
           type="tel"
           placeholder="Teléfono"
           class="w-full border border-gray-200 rounded-xl px-5 py-4
@@ -303,6 +306,7 @@ Eliyahurenteria@gmail.com
         />
 
         <textarea
+          name="mensaje"
           rows="4"
           placeholder="Mensaje"
           class="w-full border border-gray-200 rounded-xl px-5 py-4
@@ -318,11 +322,102 @@ Eliyahurenteria@gmail.com
         </button>
 
       </form>
+
+      <form id="contactForm" class="space-y-6">
+
+  <input name="nombre" type="text" placeholder="Nombre completo" class="w-full border px-5 py-4 rounded-xl" />
+  <input name="email" type="email" placeholder="Correo electrónico" class="w-full border px-5 py-4 rounded-xl" />
+  <input name="telefono" type="tel" placeholder="Teléfono" class="w-full border px-5 py-4 rounded-xl" />
+  <textarea name="mensaje" rows="4" placeholder="Mensaje" class="w-full border px-5 py-4 rounded-xl"></textarea>
+
+  <button type="submit" class="w-full bg-green-600 text-white py-4 rounded-xl hover:bg-green-700 transition font-medium">
+    Enviar por WhatsApp
+  </button>
+
+</form>
+
+
     </div>
 
   </div>
 </section>
 
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      const data = {
+        nombre: formData.get("nombre"),
+        email: formData.get("email"),
+        telefono: formData.get("telefono"),
+        mensaje: formData.get("mensaje"),
+      };
+
+      const res = await fetch("/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        alert("Mensaje enviado correctamente 💖");
+        form.reset();
+      } else {
+        alert("Error al enviar el mensaje");
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm") as HTMLFormElement | null;
+
+    if (!form) return;
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      const nombre = formData.get("nombre");
+      const email = formData.get("email");
+      const telefono = formData.get("telefono");
+      const mensaje = formData.get("mensaje");
+
+      const whatsappMessage = `
+Hola, quiero agendar una valoración ✨
+
+👤 Nombre: ${nombre}
+📧 Email: ${email}
+📞 Teléfono: ${telefono}
+
+💬 Mensaje:
+${mensaje}
+      `;
+
+      const phoneNumber = "6242465589"; // tu WhatsApp
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+        whatsappMessage
+      )}`;
+
+      window.open(url, "_blank");
+
+      form.reset(); // ✅ Ahora TypeScript sabe que existe reset()
+    });
+  });
+</script>
 
 
 
