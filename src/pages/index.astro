@@ -1,11 +1,332 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+<section  id="Inicio"
+  class="relative w-screen min-h-screen flex flex-col items-center justify-center
+         text-center px-6 bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/img-1.png');"
+>
+  <!-- Overlay gris suave -->
+<div class="absolute inset-0 bg-gradient-to-b from-gray-100/80 to-gray-200/60"></div>
+
+  <!-- Contenido -->
+  <div class="relative z-10">
+    <h1 class="text-6xl font-serif mb-6 text-gray-800">
+      Belleza natural, resultados
+      <span class="text-pink-600"> extraordinarios</span>
+    </h1>
+
+    <p class="max-w-xl text-gray-600 leading-relaxed mx-auto">
+      Tratamientos estéticos avanzados con enfoque médico,
+      precisión y armonía facial.
+    </p>
+  </div>
+</section>
+
+
+ <section id="Nosotros" class="w-full bg-[#f6f6f6] py-24">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+    <!-- Texto -->
+    <div>
+      <h2 class="text-4xl font-serif text-gray-800 mb-6">
+        Armonía, precisión y belleza natural
+      </h2>
+
+      <p class="text-gray-600 text-lg leading-relaxed mb-6">
+        Somos una clínica especializada en tratamientos estéticos avanzados,
+        enfocados en realzar la belleza natural de cada rostro con resultados
+        sutiles, seguros y personalizados.
+      </p>
+
+      <p class="text-gray-600 text-lg leading-relaxed">
+        Nuestro enfoque médico combina técnica, experiencia y sensibilidad
+        estética para ofrecer procedimientos como
+        <span class="text-pink-600 font-medium"> botox</span>,
+        <span class="text-pink-600 font-medium"> ácido hialurónico</span> y
+        <span class="text-pink-600 font-medium"> hilos rusos</span>,
+        siempre respetando la identidad de cada paciente.
+      </p>
+    </div>
+
+    <!-- Imágenes -->
+    <div class="grid grid-cols-2 gap-6">
+      <img
+        src="/tienda.jpeg"
+        alt="Tratamiento estético"
+        class="rounded-2xl object-cover h-72 w-full shadow-lg"
+      />
+
+      <img
+        src="/tienda2.jpeg"
+        alt="Clínica estética"
+        class="rounded-2xl object-cover h-72 w-full shadow-lg mt-10"
+      />
+    </div>
+
+  </div>
+</section>
+
+
+<section  id="Botox" class="w-full bg-white py-28">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+    <!-- Imagen -->
+    <div class="relative">
+      <img
+        src="/botox.png"
+        alt="Tratamiento de Botox"
+        class="rounded-3xl object-cover w-full h-[420px] shadow-xl"
+      />
+
+      <!-- Detalle decorativo -->
+      <div class="absolute -bottom-6 -right-6 w-40 h-40 border border-pink-200 rounded-3xl"></div>
+    </div>
+
+    <!-- Contenido -->
+    <div>
+      <span class="text-sm uppercase tracking-widest text-pink-600">
+        Tratamiento
+      </span>
+
+      <h2 class="text-4xl font-serif text-gray-800 mt-4 mb-6">
+        Botox
+      </h2>
+
+      <p class="text-gray-600 text-lg leading-relaxed mb-6">
+        El botox es un tratamiento estético seguro y eficaz que ayuda a suavizar
+        las líneas de expresión y prevenir la formación de arrugas, manteniendo
+        una apariencia fresca y natural.
+      </p>
+
+      <p class="text-gray-600 text-lg leading-relaxed mb-10">
+        Aplicamos técnicas personalizadas que respetan la armonía facial,
+        logrando resultados sutiles sin alterar la expresión natural del rostro.
+      </p>
+
+      <!-- Beneficios -->
+      <ul class="space-y-4 text-gray-600">
+        <li class="flex items-start gap-3">
+          <span class="text-pink-600">•</span>
+          Reducción de líneas de expresión
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-pink-600">•</span>
+          Prevención del envejecimiento prematuro
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-pink-600">•</span>
+          Resultados naturales y armoniosos
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="Hilos" class="w-full bg-[#f8f8f8] py-28">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+    <!-- Contenido -->
+    <div>
+      <span class="text-sm uppercase tracking-widest text-pink-600">
+        Tratamiento
+      </span>
+
+      <h2 class="text-4xl font-serif text-gray-800 mt-4 mb-6">
+        Hilos Rusos
+      </h2>
+
+      <p class="text-gray-600 text-lg leading-relaxed mb-6">
+        Los hilos rusos son un tratamiento de rejuvenecimiento facial que
+        estimula la producción natural de colágeno, logrando un efecto lifting
+        progresivo y natural sin cirugía.
+      </p>
+
+      <p class="text-gray-600 text-lg leading-relaxed mb-10">
+        Esta técnica redefine el óvalo facial, mejora la firmeza de la piel y
+        devuelve la tensión perdida, respetando siempre la expresión y
+        armonía del rostro.
+      </p>
+
+      <!-- Beneficios -->
+      <ul class="space-y-4 text-gray-600">
+        <li class="flex items-start gap-3">
+          <span class="text-pink-600">•</span>
+          Efecto lifting sin cirugía
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-pink-600">•</span>
+          Estimulación natural de colágeno
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-pink-600">•</span>
+          Mejora progresiva de la firmeza facial
+        </li>
+      </ul>
+    </div>
+
+    <!-- Imagen -->
+    <div class="relative">
+      <img
+        src="/hilos-rusos.jpg"
+        alt="Tratamiento de Hilos Rusos"
+        class="rounded-3xl object-cover w-full h-[420px] shadow-xl"
+      />
+
+      <!-- Detalle decorativo -->
+      <div class="absolute -top-6 -left-6 w-40 h-40 border border-pink-200 rounded-3xl"></div>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="Ácido" class="w-full bg-white py-28">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+    <!-- Imagen -->
+    <div class="relative">
+      <img
+        src="/acido.png"
+        alt="Tratamiento con Ácido Hialurónico"
+        class="rounded-3xl object-cover w-full h-[420px] shadow-xl"
+      />
+
+      <!-- Detalle decorativo -->
+      <div class="absolute -bottom-6 -right-6 w-40 h-40 border border-pink-200 rounded-3xl"></div>
+    </div>
+
+    <!-- Contenido -->
+    <div>
+      <span class="text-sm uppercase tracking-widest text-pink-600">
+        Tratamiento
+      </span>
+
+      <h2 class="text-4xl font-serif text-gray-800 mt-4 mb-6">
+        Ácido Hialurónico
+      </h2>
+
+      <p class="text-gray-600 text-lg leading-relaxed mb-6">
+        El ácido hialurónico es una sustancia naturalmente presente en la piel,
+        responsable de mantener la hidratación, elasticidad y volumen facial.
+      </p>
+
+      <p class="text-gray-600 text-lg leading-relaxed mb-10">
+        Aplicado de forma estratégica, permite restaurar volúmenes, suavizar
+        surcos y redefinir contornos faciales, logrando resultados armónicos,
+        frescos y completamente naturales.
+      </p>
+
+      <!-- Beneficios -->
+      <ul class="space-y-4 text-gray-600">
+        <li class="flex items-start gap-3">
+          <span class="text-pink-600">•</span>
+          Restauración de volumen facial
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-pink-600">•</span>
+          Hidratación profunda de la piel
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-pink-600">•</span>
+          Definición de contornos y simetría
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="Contactanos" class="w-full bg-[#f6f6f6] py-28 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+    <!-- Información -->
+    <div>
+      <span class="text-sm uppercase tracking-widest text-pink-600">
+        Contáctanos
+      </span>
+
+      <h2 class="text-4xl font-serif text-gray-800 mt-4 mb-6">
+        Agenda tu valoración
+      </h2>
+
+      <p class="text-gray-600 text-lg leading-relaxed mb-10">
+        Nuestro equipo estará encantado de atenderte y brindarte una
+        asesoría personalizada para ayudarte a realzar tu belleza de
+        manera segura y natural.
+      </p>
+
+      <ul class="space-y-6 text-gray-600">
+        <li class="flex items-center gap-4">
+          <span class="text-pink-600 text-xl">📍</span>
+ 737 Río Rancho Dr suite 210 Pomona California 91766
+        </li>
+        <li class="flex items-center gap-4">
+          <span class="text-pink-600 text-xl">📞</span>
+         (840)275-0832
+        </li>
+        <li class="flex items-center gap-4">
+          <span class="text-pink-600 text-xl">✉️</span>
+Eliyahurenteria@gmail.com
+        </li>
+      </ul>
+    </div>
+
+    <!-- Formulario -->
+    <div class="bg-white rounded-3xl shadow-xl p-10">
+      <form class="space-y-6">
+
+        <input
+          type="text"
+          placeholder="Nombre completo"
+          class="w-full border border-gray-200 rounded-xl px-5 py-4
+                 focus:outline-none focus:border-pink-500"
+        />
+
+        <input
+          type="email"
+          placeholder="Correo electrónico"
+          class="w-full border border-gray-200 rounded-xl px-5 py-4
+                 focus:outline-none focus:border-pink-500"
+        />
+
+        <input
+          type="tel"
+          placeholder="Teléfono"
+          class="w-full border border-gray-200 rounded-xl px-5 py-4
+                 focus:outline-none focus:border-pink-500"
+        />
+
+        <textarea
+          rows="4"
+          placeholder="Mensaje"
+          class="w-full border border-gray-200 rounded-xl px-5 py-4
+                 focus:outline-none focus:border-pink-500"
+        ></textarea>
+
+        <button
+          type="submit"
+          class="w-full bg-pink-600 text-white py-4 rounded-xl
+                 hover:bg-pink-700 transition font-medium"
+        >
+          Enviar mensaje
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
 </Layout>
