@@ -323,18 +323,7 @@ Eliyahurenteria@gmail.com
 
       </form>
 
-      <form id="contactForm" class="space-y-6">
-
-  <input name="nombre" type="text" placeholder="Nombre completo" class="w-full border px-5 py-4 rounded-xl" />
-  <input name="email" type="email" placeholder="Correo electrónico" class="w-full border px-5 py-4 rounded-xl" />
-  <input name="telefono" type="tel" placeholder="Teléfono" class="w-full border px-5 py-4 rounded-xl" />
-  <textarea name="mensaje" rows="4" placeholder="Mensaje" class="w-full border px-5 py-4 rounded-xl"></textarea>
-
-  <button type="submit" class="w-full bg-green-600 text-white py-4 rounded-xl hover:bg-green-700 transition font-medium">
-    Enviar por WhatsApp
-  </button>
-
-</form>
+     
 
 
     </div>
@@ -349,7 +338,10 @@ Eliyahurenteria@gmail.com
 <script type="module">
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
-    if (!form) return;
+    if (!form) {
+      console.error("No se encontró el formulario");
+      return;
+    }
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -370,16 +362,21 @@ Eliyahurenteria@gmail.com
           body: JSON.stringify(data),
         });
 
-        if (!res.ok) throw new Error();
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(text);
+        }
 
         alert("Mensaje enviado correctamente 💖");
         form.reset();
       } catch (err) {
+        console.error("ERROR FRONTEND:", err);
         alert("Error al enviar el mensaje");
       }
     });
   });
 </script>
+
 
  
 

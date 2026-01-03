@@ -1,22 +1,30 @@
-import type { APIRoute } from "astro";
+ import type { APIRoute } from "astro";
 import nodemailer from "nodemailer";
 
+export const GET: APIRoute = async () => {
+  return new Response(
+    JSON.stringify({ message: "Usa POST para enviar el formulario" }),
+    { status: 405 }
+  );
+};
+
 export const POST: APIRoute = async ({ request }) => {
-  const data = await request.json();
-  const { nombre, email, telefono, mensaje } = data;
-
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: import.meta.env.EMAIL_USER,
-      pass: import.meta.env.EMAIL_PASS,
-    },
-  });
-
   try {
+    const { nombre, email, telefono, mensaje } = await request.json();
+
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: import.meta.env.EMAIL_USER,
+        pass: import.meta.env.EMAIL_PASS,
+      },
+    });
+
     await transporter.sendMail({
       from: `"Renew Beauty" <${import.meta.env.EMAIL_USER}>`,
-      to: "contacto@renewbeauty.com", // correo destino
+      to: "contacto@renewbeauty.com",
       subject: "Nuevo mensaje desde la web",
       html: `
         <h2>Nuevo contacto</h2>
@@ -32,6 +40,7 @@ export const POST: APIRoute = async ({ request }) => {
       { status: 200 }
     );
   } catch (error) {
+    console.error("ERROR API:", error);
     return new Response(
       JSON.stringify({ success: false }),
       { status: 500 }
