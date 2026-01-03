@@ -346,10 +346,9 @@ Eliyahurenteria@gmail.com
 
 
 
-<script>
+<script type="module">
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contactForm") as HTMLFormElement | null;
-
+    const form = document.getElementById("contactForm");
     if (!form) return;
 
     form.addEventListener("submit", async (e) => {
@@ -364,16 +363,18 @@ Eliyahurenteria@gmail.com
         mensaje: formData.get("mensaje"),
       };
 
-      const res = await fetch("/api/contacto", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      try {
+        const res = await fetch("/api/contacto", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
 
-      if (res.ok) {
+        if (!res.ok) throw new Error();
+
         alert("Mensaje enviado correctamente 💖");
         form.reset();
-      } else {
+      } catch (err) {
         alert("Error al enviar el mensaje");
       }
     });
