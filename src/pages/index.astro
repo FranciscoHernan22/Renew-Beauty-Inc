@@ -348,7 +348,7 @@ Eliyahurenteria@gmail.com
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contactForm");
+    const form = document.getElementById("contactForm") as HTMLFormElement | null;
 
     if (!form) return;
 
@@ -380,45 +380,7 @@ Eliyahurenteria@gmail.com
   });
 </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contactForm") as HTMLFormElement | null;
-
-    if (!form) return;
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-
-      const nombre = formData.get("nombre");
-      const email = formData.get("email");
-      const telefono = formData.get("telefono");
-      const mensaje = formData.get("mensaje");
-
-      const whatsappMessage = `
-Hola, quiero agendar una valoración ✨
-
-👤 Nombre: ${nombre}
-📧 Email: ${email}
-📞 Teléfono: ${telefono}
-
-💬 Mensaje:
-${mensaje}
-      `;
-
-      const phoneNumber = "6242465589"; // tu WhatsApp
-      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-        whatsappMessage
-      )}`;
-
-      window.open(url, "_blank");
-
-      form.reset(); // ✅ Ahora TypeScript sabe que existe reset()
-    });
-  });
-</script>
-
+ 
 
 
 
