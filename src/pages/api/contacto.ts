@@ -1,9 +1,19 @@
 import type { APIRoute } from "astro";
 import nodemailer from "nodemailer";
 
+export const prerender = false;
+
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const { nombre, email, telefono, mensaje } = await request.json();
+    const text = await request.text();
+    if (!text) {
+      return new Response(
+        JSON.stringify({ error: "Body vacío" }),
+        { status: 400 }
+      );
+    }
+
+    const { nombre, email, telefono, mensaje } = JSON.parse(text);
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -17,7 +27,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     await transporter.sendMail({
       from: `"Renew Beauty" <${import.meta.env.EMAIL_USER}>`,
-      to: import.meta.env.EMAIL_USER, // usa el mismo correo para probar
+      to: import.meta.env.EMAIL_USER,
       subject: "Nuevo mensaje desde la web",
       html: `
         <h2>Nuevo contacto</h2>
@@ -32,6 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
       JSON.stringify({ success: true }),
       { status: 200 }
     );
+
   } catch (error) {
     console.error("ERROR API:", error);
     return new Response(
