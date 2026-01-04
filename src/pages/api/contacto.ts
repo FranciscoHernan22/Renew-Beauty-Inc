@@ -1,12 +1,5 @@
- import type { APIRoute } from "astro";
+import type { APIRoute } from "astro";
 import nodemailer from "nodemailer";
-
-export const GET: APIRoute = async () => {
-  return new Response(
-    JSON.stringify({ message: "Usa POST para enviar el formulario" }),
-    { status: 405 }
-  );
-};
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -24,7 +17,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     await transporter.sendMail({
       from: `"Renew Beauty" <${import.meta.env.EMAIL_USER}>`,
-      to: "contacto@renewbeauty.com",
+      to: import.meta.env.EMAIL_USER, // usa el mismo correo para probar
       subject: "Nuevo mensaje desde la web",
       html: `
         <h2>Nuevo contacto</h2>
