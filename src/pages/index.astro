@@ -3,13 +3,14 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-<section  id="Inicio"
+<section
+  id="Inicio"
   class="relative w-screen min-h-screen flex flex-col items-center justify-center
          text-center px-6 bg-cover bg-center bg-no-repeat"
   style="background-image: url('/img-1.png');"
 >
   <!-- Overlay gris suave -->
-<div class="absolute inset-0 bg-gradient-to-b from-gray-100/80 to-gray-200/60"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-gray-100/80 to-gray-200/60"></div>
 
   <!-- Contenido -->
   <div class="relative z-10">
@@ -18,15 +19,29 @@ import Layout from "../layouts/Layout.astro";
       <span class="text-pink-600"> extraordinarios</span>
     </h1>
 
-    <p class="max-w-xl text-gray-600 leading-relaxed mx-auto">
+    <p class="max-w-xl text-gray-600 leading-relaxed mx-auto mb-8">
       Tratamientos estéticos avanzados con enfoque médico,
       precisión y armonía facial.
     </p>
+
+    <!-- PROMOCIÓN BOTOX -->
+    <div class="inline-block mt-4 px-6 py-4 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-pink-100">
+      <p class="text-gray-700 text-base">
+        💉 <span class="font-medium">Botox en promoción</span>
+      </p>
+
+      <p class="text-gray-600">
+        De <span class="line-through">$12 USD</span> a
+        <span class="text-pink-600 font-semibold">$7 USD por unidad</span>
+        <span class="ml-1 text-sm">(20% de descuento)</span>
+      </p>
+    </div>
   </div>
 </section>
 
 
- <section id="Nosotros" class="w-full bg-[#f6f6f6] py-24">
+
+<section id="Nosotros" class="w-full bg-[#f6f6f6] py-24">
   <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
     <!-- Texto -->
@@ -41,7 +56,7 @@ import Layout from "../layouts/Layout.astro";
         sutiles, seguros y personalizados.
       </p>
 
-      <p class="text-gray-600 text-lg leading-relaxed">
+      <p class="text-gray-600 text-lg leading-relaxed mb-6">
         Nuestro enfoque médico combina técnica, experiencia y sensibilidad
         estética para ofrecer procedimientos como
         <span class="text-pink-600 font-medium"> botox</span>,
@@ -49,6 +64,22 @@ import Layout from "../layouts/Layout.astro";
         <span class="text-pink-600 font-medium"> hilos rusos</span>,
         siempre respetando la identidad de cada paciente.
       </p>
+
+      <!-- PROMOCIÓN -->
+      <div class="mt-8 p-6 bg-white rounded-2xl shadow-md border border-pink-100">
+        <p class="text-gray-700 text-lg leading-relaxed mb-2">
+          💉 <span class="font-medium">Promoción especial en Botox</span>
+        </p>
+
+        <p class="text-gray-600 leading-relaxed">
+          La unidad de Botox en la zona normalmente tiene un costo aproximado de
+          <span class="line-through mx-1">$12 USD</span>.
+          Actualmente la estamos ofreciendo en
+          <span class="text-pink-600 font-semibold">$7 USD por unidad</span>,
+          como parte de una
+          <span class="font-medium"> promoción con 20% de descuento</span>.
+        </p>
+      </div>
     </div>
 
     <!-- Imágenes -->
@@ -68,6 +99,7 @@ import Layout from "../layouts/Layout.astro";
 
   </div>
 </section>
+
 
 
 <section  id="Botox" class="w-full bg-white py-28">
